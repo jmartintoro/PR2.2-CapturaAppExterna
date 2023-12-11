@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
                 someActivityResultLauncher.launch(intent);
             }
         });
+
+        Button botonCamara = findViewById(R.id.buttonCamera);
+        botonCamara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                someActivityResultLauncherCamera.launch(intent);
+            }
+        });
     }
 
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
@@ -48,6 +59,21 @@ public class MainActivity extends AppCompatActivity {
                         ImageView imageView = findViewById(R.id.imageView);
                         imageView.setImageURI(uri);
                     }
+                }
+            });
+    ActivityResultLauncher<Intent> someActivityResultLauncherCamera = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent jaimito = result.getData();
+                        Bundle extras = jaimito.getExtras();
+                        Bitmap imageBitmap = (Bitmap) extras.get("data");
+                        ImageView imageView = findViewById(R.id.imageView);
+                        imageView.setImageBitmap(imageBitmap);
+                    }
+
                 }
             });
 }
