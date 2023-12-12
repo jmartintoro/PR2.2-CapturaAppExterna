@@ -17,6 +17,16 @@
         app:layout_constraintStart_toEndOf="@+id/button" />
 
     <Button
+        android:id="@+id/buttonCamera2"
+        android:layout_width="112dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="100dp"
+        android:text="Camera F.S."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/button"
         android:layout_width="112dp"
         android:layout_height="56dp"
