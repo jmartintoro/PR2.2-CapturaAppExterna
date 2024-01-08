@@ -20,10 +20,22 @@
         android:id="@+id/buttonCamera2"
         android:layout_width="112dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="104dp"
         android:text="Camera F.S."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/imageGallery"
+        android:layout_width="112dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="104dp"
+        android:text="Gallery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

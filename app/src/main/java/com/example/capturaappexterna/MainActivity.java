@@ -61,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 dispatchTakePictureIntent();
             }
         });
+
+        Button imageGallery = findViewById(R.id.imageGallery);
+        imageGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, reciclerViewGalery.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
